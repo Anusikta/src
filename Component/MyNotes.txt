@@ -1,0 +1,171 @@
+React :-
+- React is a frontend JavaScript framework, is a JavaScript library created by Facebook.
+- React is a tool for building UI components.
+- React creates a VIRTUAL DOM in memory.
+1. Declarative syntax
+2. Component Based Architectre - React component is a reusable, self-contained unit that encapsulates a specific
+   piece of UI functionality code reusability and maintainability (interactive and dynamic)
+3. Virtual Document Object model - optimize the updating process by comparing the virtual DOM with the real DOM 
+   and only applying the necessary changes, reducing the number of DOM manipulations
+4. One-Way Data Binding
+5. JSX
+6. React ecosystem
+- function based component and class based component
+
+Virtual DOM - 
+- Instead of manipulating the browser's DOM directly, React creates a virtual DOM in memory, where it does all the 
+  necessary manipulating, before making the changes in the browser DOM.
+- React only changes what needs to be changed!
+- React finds out what changes have been made, and changes only what needs to be changed.
+
+ES6 -
+- You will learn the various aspects of how React does this in the rest of this tutorial.
+- ES6 stands for ECMAScript 6.
+- ECMAScript was created to standardize JavaScript, and ES6 is the 6th version of ECMAScript, it was published in 
+2015, and is also known as ECMAScript 2015.
+
+Single page Application -
+1. Dynamic loading 
+2. Client side routing
+3. AJAX
+4. State preservation
+
+JSX :-
+- jsx is syntax extension of javascript
+- we can write html and java script(in {} braces) in a single file
+- JSX allows you to write HTML-like code within your JavaScript files
+- ex: const element = <h1>Hello, world!</h1>;
+1. Embedding Expressions
+   ex: const name = 'Josh Perez';
+	 const element = <h1>Hello, {name}</h1>;
+2. React Elements
+3. Attribute handling
+4. className = camel casing
+
+Babel :-
+- Babel is a javaScript compiler 
+- transpile other syntax extensions like JSX (commonly associated with React) into plain JavaScript.
+S
+JS :-
+- JS is based on ECMAScript used for web development to add interactivity and dynamic behavior to websites.
+- JS can be asynchonous i.e execute code that might take some time to complete without blocking the execution 
+  of the rest of your code
+- promises - 
+
+Q1. javascript have async await and all how babel handle them ?
+
+Setting react app :-
+1. Node.js and npm:
+Make sure you have Node.js and npm (Node Package Manager) installed on your machine.
+2. Create reac app on terminal
+   Navigate to your project directory
+   You add any packages according to your necessity
+3. Developement server
+   npm start
+   get it accessed in localhost3000
+4. Set up code editor
+5. vesion control(git init)
+6. Build(npm run build) and deploy
+
+function and class based components :-
+
+Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. 
+Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and 
+return React elements describing what should appear on the screen.
+
+useState - useState is a Hook that allows you to add state to functional components. 
+useEffect - used to perform side effects in functional components. Side effects may include data fetching, 
+            subscriptions, manual DOM manipulations, or other operations that are not directly related to rendering.
+useRef -  is a hook in React that provides a way to persist values across renders without causing re-renders. It 
+          returns a mutable object called a ref object, which has a .current property that can be assigned any value. 
+          The primary use cases for useRef include accessing and interacting with the DOM directly, storing mutable values 
+          that don't trigger re-renders, and persisting values between renders.
+
+
+Event handling - 
+- camel casing
+- function should not be passed as strings rather within curly braces because of js
+- define the handler function
+- don't give the parenthesis bz 
+  the handleClick function is passed as an onClick event handler.
+  This tells React to remember it and only call your function when the user clicks the button.
+
+  the () at the end of handleClick() fires the function immediately during rendering, without any clicks.
+  This is because JavaScript inside the JSX { and } executes right away.
+
+- Types of Event - 
+
+onClick:
+Use Case: Handling click events, like button clicks or other clickable elements.
+
+onChange:
+Use Case: Handling changes in form elements, such as input fields, checkboxes, or select dropdowns.
+
+onSubmit:
+Use Case: Handling form submission events, often used to perform actions when a form is submitted.
+
+onMouseOver and onMouseOut:
+Use Case: Handling mouse hover and mouse leave events on elements.
+
+onKeyDown, onKeyPress, and onKeyUp:
+Use Case: Handling keyboard-related events, useful for capturing user input from the keyboard.
+
+onFocus and onBlur:
+Use Case: Handling focus and blur events on elements, useful for tracking when an element gains or loses focus.
+
+onDoubleClick:
+Use Case: Handling double-click events on elements.
+
+onLoad and onError:
+Use Case: Handling events related to the loading of external resources, such as images or scripts.
+
+onScroll:
+Use Case: Handling scroll events on elements, often used for implementing scroll-based animations or loading more content as the user scrolls.
+
+onDragStart, onDragEnter, onDragOver, onDragLeave, onDragEnd, and onDrop:
+Use Case: Handling drag-and-drop events for draggable elements.
+
+onResize:
+Use Case: Handling window resize events, useful for updating the UI in response to changes in the viewport size.
+
+How events propagate and how to stop them  - 
+event propagate - This <div> contains two buttons. Both the <div> and each button have their own onClick handlers. 
+                  If you click on either button, its onClick will run first, 
+                  followed by the parent <div>’s onClick. So two messages will appear. 
+                  If you click the toolbar itself, only the parent <div>’s onClick will run.
+
+All events propagate in React except onScroll, which only works on the JSX tag you attach it to.     
+e.stopPropagation for stopping the Propagation  
+React calls the onClick handler passed to <button>.
+That handler, defined in Button, does the following:
+Calls e.stopPropagation(), preventing the event from bubbling further.
+Calls the onClick function, which is a prop passed from the Toolbar component.
+That function, defined in the Toolbar component, displays the button’s own alert.
+Since the propagation was stopped, the parent <div>’s onClick handler does not run.
+e.stopPropagation() stops the event handlers attached to the tags above from firing.
+e.preventDefault() prevents the default browser behavior for the few events that have it.
+
+Conditional rendering - 
+if-else
+ternary
+&&
+
+List rendering -
+filter method key method 
+pass key within lists
+JSX elements directly inside a map() call always need keys!
+Keys tell React which array item each component corresponds to, so that it can match them up later. 
+This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. 
+A well-chosen key helps React infer what exactly has happened, and make the correct updates to the DOM tree.
+index as key pattern map(key,index) - not recommended  index can be key - problems will come while sorting or inserting at the beginning
+idex can be used if the doesn't have any unique key and the list is a static list and will not change and 
+the list will never be reordered or filtered
+
+Styling in react 
+1. Inline css - style = {}
+
+2. css modules - className
+3. style components - import styled-component
+      styled.<element name>`give styles`
+      
+4. css in js library
